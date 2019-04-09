@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button1 = findViewById(R.id.button);
-        button2 = findViewById(R.id.button2);
-        button3 = findViewById(R.id.button3);
+        button1 = findViewById(R.id.button1Id);
+        button2 = findViewById(R.id.button2Id);
+        button3 = findViewById(R.id.button3Id);
 
 
         button1.setOnClickListener(this);
@@ -31,7 +31,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        v.getId();
+        switch (v.getId()){
+            case R.id.button1Id:
+                mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.queota);
+                tocaSom();
+                break;
+        }
+
 
     }
+
+    public void tocaSom(){
+        if (mediaPlayer != null){
+            mediaPlayer.start();
+
+        }
+    }
+
 }
